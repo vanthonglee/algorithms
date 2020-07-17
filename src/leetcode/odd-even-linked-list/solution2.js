@@ -10,32 +10,27 @@
  * @return {ListNode}
  */
 var oddEvenList = function (head) {
-  let temp = head;
+  if (!head) return null;
 
-  let length = 0;
-  while (temp) {
-    length++;
-    temp = temp.next;
-  }
-
-  let abc = head;
   let odd = new ListNode();
-  let tempOdd = odd;
+  let oddHead = odd;
   let even = new ListNode();
-  let tempEven = even;
+  let evenHead = even;
 
-  for (let i = 1; i <= length; i++) {
-    if (i % 2 !== 0) {
-      odd.next = abc;
+  let isOdd = true;
+  while (head) {
+    if (isOdd) {
+      odd.next = head;
       odd = odd.next;
     } else {
-      even.next = abc;
+      even.next = head;
       even = even.next;
     }
-    abc = abc.next;
+    head = head.next;
+    isOdd = !isOdd;
   }
+
   even.next = null;
-  odd.next = null;
-  odd.next = tempEven.next;
-  return tempOdd.next;
+  odd.next = evenHead.next;
+  return oddHead.next;
 };
