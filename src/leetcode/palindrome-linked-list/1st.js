@@ -14,7 +14,6 @@ var isPalindrome = function (head) {
   //My solution: 
   // +first is I will reverse the list and save it, 
   // +then I check if the reverse is equal to the original or not. 
-  let reversed = null;
   let reversedHead = null;
   let temp = head;
   while (temp) {
