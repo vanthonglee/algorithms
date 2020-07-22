@@ -18,3 +18,4 @@ var preorderTraversal = function(root) {
   if (root.right) { result = result.concat(preorderTraversal(root.right)) } 
   return result;
 };
+
